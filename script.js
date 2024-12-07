@@ -27,12 +27,15 @@ for (let row = 0; row < rows; row++) {
     hex.className = "hex";
 
     // Calcula a posição de cada hexágono
-    const left = col * 123; // Espaçamento horizontal
-    const top = row * 93; // Espaçamento vertical para encostar as linhas
+    const left = col * 135; // Espaçamento horizontal
+
+    // Não altere o 30px, altere apenas o valor da esquerda
+    const top = row * (135 - 30); // Espaçamento vertical para encostar as linhas
 
     // Ajuste para linhas ímpares
     if (row % 2 !== 0) {
-      hex.style.left = `${left + 62}px`; // Deslocamento horizontal
+      // Não altere o 67px, altere apenas o valor da esquerda
+      hex.style.left = `${left + (135 - 67)}px`; // Deslocamento horizontal
     } else {
       hex.style.left = `${left}px`;
     }
