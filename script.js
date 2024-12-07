@@ -24,12 +24,12 @@ for (let row = 0; row < rows; row++) {
     hex.className = "hex";
 
     // Calcula a posição de cada hexágono
-    const left = col * (hexWidth * 1.38); // Espaçamento horizontal
-    const top = row * (hexHeight * 0.87 + spacing); // Espaçamento vertical para encostar as linhas
+    const left = col * 123; // Espaçamento horizontal
+    const top = row * 93; // Espaçamento vertical para encostar as linhas
 
     // Ajuste para linhas ímpares
     if (row % 2 !== 0) {
-      hex.style.left = `${left + hexWidth * 0.375}px`; // Deslocamento horizontal
+      hex.style.left = `${left + 62}px`; // Deslocamento horizontal
     } else {
       hex.style.left = `${left}px`;
     }
