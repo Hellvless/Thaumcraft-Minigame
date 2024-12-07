@@ -1,5 +1,6 @@
 const gridContainer = document.getElementById("grid-container");
 
+//commit do arthur
 // Configurações da grade
 const rows = 6; // Número de linhas
 const cols = 6; // Número de hexágonos por linha
