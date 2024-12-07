@@ -1,0 +1,76 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #2b2b2b;
+}
+
+#grid-container {
+  position: relative; /* Permite posicionamento absoluto dos hexágonos */
+  width: 50%; /* Tamanho adaptável */
+  height: 50%; /* Calculado dinamicamente no JS */
+}
+
+.hex {
+  position: absolute; /* Posicionamento absoluto dentro do grid */
+  width: 120px; /* Tamanho do hexágono */
+  height: 120px;
+  background-color: #f5deb3;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+
+.hex .content {
+  margin-top: 26px;
+  text-align: center;
+  line-height: 69px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.hex-row {
+  display: flex;
+  justify-content: center;
+}
+
+.hex-row:nth-child(odd) {
+  margin-left: 60px; /* Deslocamento para linhas ímpares */
+}
+
+/* Ajustes para a tabela de elementos à direita */
+#elements-container {
+  width: 480px;
+  background-color: #3b3b3b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#elements-container h3 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.element .icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
