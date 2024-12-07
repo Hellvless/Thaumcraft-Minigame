@@ -14,9 +14,12 @@ const hexSize = Math.min(
 const hexHeight = hexSize * 4 / 2; // Altura do hexágono
 const hexWidth = hexSize; // Largura base do hexágono
 
+
 // Atualiza o tamanho do contêiner da grade
-gridContainer.style.width = `${cols * hexWidth * 0.75 + (cols - 1) * spacing}px`;
-gridContainer.style.height = `${rows * hexHeight + (rows - 1) * spacing}px`;
+gridContainer.style.width = `${cols}px`;
+gridContainer.style.height = `${rows}px`;
+
+
 
 for (let row = 0; row < rows; row++) {
   for (let col = 0; col < cols; col++) {
