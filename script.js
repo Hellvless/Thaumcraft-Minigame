@@ -1,25 +1,41 @@
 const gridContainer = document.getElementById("grid-container");
 
-//commit do arthur
 // Configurações da grade
-const rows = 6; // Número de linhas
-const cols = 6; // Número de hexágonos por linha
+const rows = 5; // Número de linhas
+const cols = 8; // Número de hexágonos por linha
 
 const spacing = 1; // Espaçamento entre hexágonos (em pixels)
-const hexSize = Math.min(
-  (window.innerWidth - (cols - 1) * spacing) / (cols * 1.5),
-  (window.innerHeight - (rows - 1) * spacing) / (rows * 1.5)
-); // Ajuste proporcional considerando o espaçamento
+const hexWidth = (gridContainer.offsetWidth - (cols - 1) * spacing) / (cols * 0.75); // Ajuste horizontal
+const hexHeight = (gridContainer.offsetHeight - (rows - 1) * spacing) / rows; // Ajuste vertical
 
-const hexHeight = hexSize * 4 / 2; // Altura do hexágono
-const hexWidth = hexSize; // Largura base do hexágono
+// Determina o tamanho mínimo entre o hexWidth e hexHeight para que os hexágonos caibam
+const hexSize = Math.min(hexWidth, hexHeight); // O menor valor entre largura e altura
+
+gridContainer.style.width = "800px";  // Largura fixada do contêiner
+gridContainer.style.height = "600px"; // Altura fixada do contêiner
+
+// Caso o número de linhas seja maior que 6, ajustamos o hexSize para diminuir proporcionalmente
+if (rows > 6) {
+  // Ajusta o hexSize para diminuir conforme o número de linhas
+  const scaleFactor = 6 / rows; // Reduz o tamanho baseado no número de linhas
+  hexSize = hexSize * scaleFactor;
+}
 
 
-// Atualiza o tamanho do contêiner da grade
-gridContainer.style.width = `${cols}px`;
-gridContainer.style.height = `${rows}px`;
+// Atualiza o tamanho do hexágono
+const hexHeightFinal = hexSize * 4 / 2; // Altura final do hexágono
+const hexWidthFinal = hexSize; // Largura final do hexágono
 
 
+// Atualiza o tamanho do contêiner da grid
+gridContainer.style.width = `${(cols * hexWidthFinal + (cols - 1) * spacing)}px`;
+gridContainer.style.height = `${rows * (hexHeightFinal - 30)}px`; // Ajuste vertical para o espaçamento
+
+// Centralizando o grid-container na tela
+gridContainer.style.position = "absolute";
+gridContainer.style.top = "50%";
+gridContainer.style.left = "50%";
+gridContainer.style.transform = "translate(-50%, -50%)"; // Centraliza o contêiner
 
 for (let row = 0; row < rows; row++) {
   for (let col = 0; col < cols; col++) {
@@ -39,6 +55,8 @@ for (let row = 0; row < rows; row++) {
     } else {
       hex.style.left = `${left}px`;
     }
+
+    
 
     // Aplica as coordenadas
     hex.style.top = `${top}px`;

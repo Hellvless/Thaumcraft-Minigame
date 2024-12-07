@@ -1,27 +1,28 @@
 body {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: #2b2b2b;
 }
 
 #grid-container {
-  position: relative;
-  width: auto; /* Calculado dinamicamente no JS */
-  height: auto; /* Calculado dinamicamente no JS */
-  display: flex;
-  flex-wrap: wrap; /* Garante flexibilidade no layout */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza horizontal e verticalmente */
+  width: auto; /* Dimensões ajustadas no JavaScript */
+  height: auto;
 }
 
-
 .hex {
-  position: absolute; /* Posicionamento absoluto dentro do grid */
-  width: 120px; /* Tamanho do hexágono */
+  position: absolute;
+  width: 120px;
   height: 120px;
   background-color: #f5deb3;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
-
 
 .hex .content {
   margin-top: 26px;
